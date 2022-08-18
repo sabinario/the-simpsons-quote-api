@@ -9,13 +9,13 @@ const {
 const appRouter = require('./routes');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
-const whitelist = ['https://the-simpsons-quote-app.vercel.app/'];
+const whitelist = ['https://the-simpsons-quote-app.vercel.app'];
 
 const options = {
 	origin: (origin, callback) => {
-		if (whitelist.includes(origin)) {
+		if (whitelist.includes(origin) || !origin) {
 			callback(null, true);
 		} else {
 			callback(new Error('Unauthorized'));
