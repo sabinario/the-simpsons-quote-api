@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const boom = require('@hapi/boom');
 const {
 	logErrors,
 	errorHandler,
@@ -18,7 +19,7 @@ const options = {
 		if (whitelist.includes(origin)) {
 			callback(null, true);
 		} else {
-			callback(new Error('You are not authorized'));
+			callback(boom.unauthorized());
 		}
 	},
 };
