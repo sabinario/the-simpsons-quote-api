@@ -15,7 +15,7 @@ const whitelist = ['https://the-simpsons-quote-app.vercel.app'];
 
 const options = {
 	origin: (origin, callback) => {
-		if (whitelist.includes(origin) || !origin) {
+		if (whitelist.includes(origin)) {
 			callback(null, true);
 		} else {
 			callback(new Error('Unauthorized'));
