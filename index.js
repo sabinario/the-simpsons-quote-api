@@ -1,12 +1,22 @@
 const express = require('express');
+const cors = require('cors');
+const {
+	logErrors,
+	errorHandler,
+	boomErrorHandler,
+} = require('./middlewares/errorHandler');
+
+const appRouter = require('./routes');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/api/v1/quotes', (req, res) => {
-	res.json({
-		msg: 'app its working',
-	});
-});
+app.use(cors());
+appRouter(app);
+
+app.use(logErrors);
+app.use(boomErrorHandler);
+app.use(errorHandler);
 
 app.listen(port, () => {
 	// eslint-disable-next-line no-console
