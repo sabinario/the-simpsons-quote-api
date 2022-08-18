@@ -1,6 +1,4 @@
 const { Router, json } = require('express');
-const axios = require('axios');
-const boom = require('@hapi/boom');
 
 const quoteService = require('../services/quotes.service');
 

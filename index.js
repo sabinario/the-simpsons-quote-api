@@ -18,7 +18,7 @@ const options = {
 		if (whitelist.includes(origin)) {
 			callback(null, true);
 		} else {
-			callback(new Error('Unauthorized'));
+			callback(new Error('You are not authorized'));
 		}
 	},
 };
